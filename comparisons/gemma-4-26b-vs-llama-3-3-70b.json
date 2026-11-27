@@ -1,0 +1,692 @@
+{
+ "slug": "gemma-4-26b-vs-llama-3-3-70b",
+ "models": [
+  "@cf/google/gemma-4-26b-a4b-it",
+  "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ ],
+ "runs": 3,
+ "started": "2026-11-27T04:18:58.603Z",
+ "results": {
+  "@cf/google/gemma-4-26b-a4b-it": [
+   {
+    "model": "@cf/google/gemma-4-26b-a4b-it",
+    "served_model": "@cf/google/gemma-4-26b-a4b-it-external",
+    "bits": "1111111111111111111111111111111101100111",
+    "n": 40,
+    "passed": 37,
+    "errors": 0,
+    "by_cat": {
+     "json": [
+      10,
+      10
+     ],
+     "extraction": [
+      10,
+      10
+     ],
+     "classification": [
+      10,
+      10
+     ],
+     "instruction": [
+      7,
+      10
+     ]
+    },
+    "neurons": 315.65,
+    "truncated": 3,
+    "error_samples": [],
+    "outputs": [
+     {
+      "id": "json-01",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"name\": \"Maria\", \"age\": 34}"
+     },
+     {
+      "id": "json-02",
+      "pass": true,
+      "why": "ok",
+      "output": "[2, 3, 5, 7, 11]"
+     },
+     {
+      "id": "json-03",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"fruits\": [\"apple\", \"banana\"], \"count\": 2}"
+     },
+     {
+      "id": "json-04",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"order_id\": 1182, \"items\": [{\"name\": \"pen\", \"qty\": 2, \"price\": 1.5}, {\"name\": \"notebook\", \"qty\": 1, \"price\": 4.0}]}"
+     },
+     {
+      "id": "json-05",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"active\": true, \"nickname\": null, \"score\": 0}"
+     },
+     {
+      "id": "json-06",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"quote\": \"He said \\\"hi\\\"\"}"
+     },
+     {
+      "id": "json-07",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"a\": 1, \"b\": 2, \"c\": 3}"
+     },
+     {
+      "id": "json-08",
+      "pass": true,
+      "why": "ok",
+      "output": "[{\"id\": 7, \"name\": \"widget\", \"qty\": 12}]"
+     },
+     {
+      "id": "json-09",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"year\": 2024, \"month\": 3, \"day\": 5}"
+     },
+     {
+      "id": "json-10",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"overdue\": []}"
+     },
+     {
+      "id": "extract-01",
+      "pass": true,
+      "why": "ok",
+      "output": "support@acme-labs.io"
+     },
+     {
+      "id": "extract-02",
+      "pass": true,
+      "why": "ok",
+      "output": "1249.50"
+     },
+     {
+      "id": "extract-03",
+      "pass": true,
+      "why": "ok",
+      "output": "2025-06-11"
+     },
+     {
+      "id": "extract-04",
+      "pass": true,
+      "why": "ok",
+      "output": "Elena Park; Tom Reyes"
+     },
+     {
+      "id": "extract-05",
+      "pass": true,
+      "why": "ok",
+      "output": "415-555-0199"
+     },
+     {
+      "id": "extract-06",
+      "pass": true,
+      "why": "ok",
+      "output": "2"
+     },
+     {
+      "id": "extract-07",
+      "pass": true,
+      "why": "ok",
+      "output": "docs.example.org"
+     },
+     {
+      "id": "extract-08",
+      "pass": true,
+      "why": "ok",
+      "output": "EUR"
+     },
+     {
+      "id": "extract-09",
+      "pass": true,
+      "why": "ok",
+      "output": "Natarajan"
+     },
+     {
+      "id": "extract-10",
+      "pass": true,
+      "why": "ok",
+      "output": "TRK-5521"
+     },
+     {
+      "id": "classify-01",
+      "pass": true,
+      "why": "ok",
+      "output": "negative"
+     },
+     {
+      "id": "classify-02",
+      "pass": true,
+      "why": "ok",
+      "output": "positive"
+     },
+     {
+      "id": "classify-03",
+      "pass": true,
+      "why": "ok",
+      "output": "neutral"
+     },
+     {
+      "id": "classify-04",
+      "pass": true,
+      "why": "ok",
+      "output": "refund"
+     },
+     {
+      "id": "classify-05",
+      "pass": true,
+      "why": "ok",
+      "output": "login"
+     },
+     {
+      "id": "classify-06",
+      "pass": true,
+      "why": "ok",
+      "output": "sports"
+     },
+     {
+      "id": "classify-07",
+      "pass": true,
+      "why": "ok",
+      "output": "finance"
+     },
+     {
+      "id": "classify-08",
+      "pass": true,
+      "why": "ok",
+      "output": "technology"
+     },
+     {
+      "id": "classify-09",
+      "pass": true,
+      "why": "ok",
+      "output": "spam"
+     },
+     {
+      "id": "classify-10",
+      "pass": true,
+      "why": "ok",
+      "output": "not_spam"
+     },
+     {
+      "id": "follow-01",
+      "pass": true,
+      "why": "ok",
+      "output": "- Coffee is a popular caffeinated beverage made from roasted beans.\n- It is grown in many tropical regions around the world.\n- Many people enjoy drinking it in the morning for an energy boost."
+     },
+     {
+      "id": "follow-02",
+      "pass": true,
+      "why": "ok",
+      "output": "the gentle rain falls softly against the windowpane."
+     },
+     {
+      "id": "follow-03",
+      "pass": false,
+      "why": "failed words",
+      "output": ""
+     },
+     {
+      "id": "follow-04",
+      "pass": true,
+      "why": "ok",
+      "output": "yes yes yes yes"
+     },
+     {
+      "id": "follow-05",
+      "pass": true,
+      "why": "ok",
+      "output": "Blue, Green, Red"
+     },
+     {
+      "id": "follow-06",
+      "pass": false,
+      "why": "failed startsWith",
+      "output": ""
+     },
+     {
+      "id": "follow-07",
+      "pass": false,
+      "why": "failed minWords",
+      "output": ""
+     },
+     {
+      "id": "follow-08",
+      "pass": true,
+      "why": "ok",
+      "output": "1\n2\n3\n4\n5"
+     },
+     {
+      "id": "follow-09",
+      "pass": true,
+      "why": "ok",
+      "output": "Soft flakes fall from the sky,\nBlanketing the world in white,\nA silent, frozen peace."
+     },
+     {
+      "id": "follow-10",
+      "pass": true,
+      "why": "ok",
+      "output": "HELLO DANA!"
+     }
+    ],
+    "set_sha": "f2ee123cfd10ce6138f49b2d1b4cfd75dcbc9b76804bd7f4ee4d7188e4eab5cc",
+    "set_version": "1.0.0",
+    "ts": "2026-11-27T04:20:35.285Z"
+   },
+   {
+    "model": "@cf/google/gemma-4-26b-a4b-it",
+    "served_model": "@cf/google/gemma-4-26b-a4b-it-external",
+    "bits": "1111111111111111111111111111111101100111",
+    "n": 40,
+    "passed": 37,
+    "errors": 0,
+    "by_cat": {
+     "json": [
+      10,
+      10
+     ],
+     "extraction": [
+      10,
+      10
+     ],
+     "classification": [
+      10,
+      10
+     ],
+     "instruction": [
+      7,
+      10
+     ]
+    },
+    "neurons": 326.37,
+    "truncated": 3,
+    "error_samples": [],
+    "set_sha": "f2ee123cfd10ce6138f49b2d1b4cfd75dcbc9b76804bd7f4ee4d7188e4eab5cc",
+    "set_version": "1.0.0",
+    "ts": "2026-11-27T04:22:08.208Z"
+   },
+   {
+    "model": "@cf/google/gemma-4-26b-a4b-it",
+    "served_model": "@cf/google/gemma-4-26b-a4b-it",
+    "bits": "1111111111111111111111111111111101100111",
+    "n": 40,
+    "passed": 37,
+    "errors": 0,
+    "by_cat": {
+     "json": [
+      10,
+      10
+     ],
+     "extraction": [
+      10,
+      10
+     ],
+     "classification": [
+      10,
+      10
+     ],
+     "instruction": [
+      7,
+      10
+     ]
+    },
+    "neurons": 312.8,
+    "truncated": 3,
+    "error_samples": [],
+    "set_sha": "f2ee123cfd10ce6138f49b2d1b4cfd75dcbc9b76804bd7f4ee4d7188e4eab5cc",
+    "set_version": "1.0.0",
+    "ts": "2026-11-27T04:23:32.770Z"
+   }
+  ],
+  "@cf/meta/llama-3.3-70b-instruct-fp8-fast": [
+   {
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "served_model": "@cf/meta/llama-3.3-70b-instruct-sd",
+    "bits": "1111111111111111111111111111111101111111",
+    "n": 40,
+    "passed": 39,
+    "errors": 0,
+    "by_cat": {
+     "json": [
+      10,
+      10
+     ],
+     "extraction": [
+      10,
+      10
+     ],
+     "classification": [
+      10,
+      10
+     ],
+     "instruction": [
+      9,
+      10
+     ]
+    },
+    "neurons": 180.04,
+    "truncated": 0,
+    "error_samples": [],
+    "outputs": [
+     {
+      "id": "json-01",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"name\": \"Maria\", \"age\": 34}"
+     },
+     {
+      "id": "json-02",
+      "pass": true,
+      "why": "ok",
+      "output": "[2, 3, 5, 7, 11]"
+     },
+     {
+      "id": "json-03",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"fruits\": [\"apple\", \"banana\"], \"count\": 2}"
+     },
+     {
+      "id": "json-04",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"order_id\": 1182, \"items\": [{\"name\": \"pen\", \"qty\": 2, \"price\": 1.50}, {\"name\": \"notebook\", \"qty\": 1, \"price\": 4.00}]}"
+     },
+     {
+      "id": "json-05",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"active\": true, \"nickname\": null, \"score\": 0}"
+     },
+     {
+      "id": "json-06",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"quote\": \"He said \\\"hi\\\"\"}"
+     },
+     {
+      "id": "json-07",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"a\": 1, \"b\": 2, \"c\": 3}"
+     },
+     {
+      "id": "json-08",
+      "pass": true,
+      "why": "ok",
+      "output": "[{\"id\":7,\"name\":\"widget\",\"qty\":12}]"
+     },
+     {
+      "id": "json-09",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"year\": 2024, \"month\": 3, \"day\": 5}"
+     },
+     {
+      "id": "json-10",
+      "pass": true,
+      "why": "ok",
+      "output": "{\"overdue\":[]}"
+     },
+     {
+      "id": "extract-01",
+      "pass": true,
+      "why": "ok",
+      "output": "support@acme-labs.io"
+     },
+     {
+      "id": "extract-02",
+      "pass": true,
+      "why": "ok",
+      "output": "1249.50"
+     },
+     {
+      "id": "extract-03",
+      "pass": true,
+      "why": "ok",
+      "output": "2025-06-11"
+     },
+     {
+      "id": "extract-04",
+      "pass": true,
+      "why": "ok",
+      "output": "Elena Park; Tom Reyes"
+     },
+     {
+      "id": "extract-05",
+      "pass": true,
+      "why": "ok",
+      "output": "415-555-0199"
+     },
+     {
+      "id": "extract-06",
+      "pass": true,
+      "why": "ok",
+      "output": "2"
+     },
+     {
+      "id": "extract-07",
+      "pass": true,
+      "why": "ok",
+      "output": "docs.example.org"
+     },
+     {
+      "id": "extract-08",
+      "pass": true,
+      "why": "ok",
+      "output": "EUR"
+     },
+     {
+      "id": "extract-09",
+      "pass": true,
+      "why": "ok",
+      "output": "Natarajan"
+     },
+     {
+      "id": "extract-10",
+      "pass": true,
+      "why": "ok",
+      "output": "TRK-5521"
+     },
+     {
+      "id": "classify-01",
+      "pass": true,
+      "why": "ok",
+      "output": "negative"
+     },
+     {
+      "id": "classify-02",
+      "pass": true,
+      "why": "ok",
+      "output": "positive"
+     },
+     {
+      "id": "classify-03",
+      "pass": true,
+      "why": "ok",
+      "output": "neutral"
+     },
+     {
+      "id": "classify-04",
+      "pass": true,
+      "why": "ok",
+      "output": "refund"
+     },
+     {
+      "id": "classify-05",
+      "pass": true,
+      "why": "ok",
+      "output": "login"
+     },
+     {
+      "id": "classify-06",
+      "pass": true,
+      "why": "ok",
+      "output": "sports"
+     },
+     {
+      "id": "classify-07",
+      "pass": true,
+      "why": "ok",
+      "output": "finance"
+     },
+     {
+      "id": "classify-08",
+      "pass": true,
+      "why": "ok",
+      "output": "technology"
+     },
+     {
+      "id": "classify-09",
+      "pass": true,
+      "why": "ok",
+      "output": "spam"
+     },
+     {
+      "id": "classify-10",
+      "pass": true,
+      "why": "ok",
+      "output": "not_spam"
+     },
+     {
+      "id": "follow-01",
+      "pass": true,
+      "why": "ok",
+      "output": "- Coffee is one of the most widely consumed beverages in the world, with millions of people relying on it for their daily dose of caffeine.\n- Coffee has numerous health benefits, including improving cognitive function, boosting metabolism, and reducing the risk of certain diseases such as Parkinson's and Alzheimer's.\n- Coffee comes in a variety of flavors and blends, ranging from strong and bold t"
+     },
+     {
+      "id": "follow-02",
+      "pass": true,
+      "why": "ok",
+      "output": "the sound of rain falling gently on the roof is very soothing and calming to listen to."
+     },
+     {
+      "id": "follow-03",
+      "pass": false,
+      "why": "failed words",
+      "output": "The moon is a very large object."
+     },
+     {
+      "id": "follow-04",
+      "pass": true,
+      "why": "ok",
+      "output": "yes yes yes yes"
+     },
+     {
+      "id": "follow-05",
+      "pass": true,
+      "why": "ok",
+      "output": "Blue, Green, Yellow"
+     },
+     {
+      "id": "follow-06",
+      "pass": true,
+      "why": "ok",
+      "output": "A bicycle is a vehicle with two wheels, powered by the rider's pedaling, and is a popular mode of transportation for short distances. The bicycle has a frame, seat, and handlebars, and is often equipped with additional features such as brakes and a bell to ensure a safe and enjoyable ride."
+     },
+     {
+      "id": "follow-07",
+      "pass": true,
+      "why": "ok",
+      "output": "Scattering of sunlight by atmospheric gases causes blue color."
+     },
+     {
+      "id": "follow-08",
+      "pass": true,
+      "why": "ok",
+      "output": "1\n2\n3\n4\n5"
+     },
+     {
+      "id": "follow-09",
+      "pass": true,
+      "why": "ok",
+      "output": "Softly falls the silent snow, \nGentle flakes that dance and play, \nFilling hearts with winter's glow"
+     },
+     {
+      "id": "follow-10",
+      "pass": true,
+      "why": "ok",
+      "output": "HELLO DANA!"
+     }
+    ],
+    "set_sha": "f2ee123cfd10ce6138f49b2d1b4cfd75dcbc9b76804bd7f4ee4d7188e4eab5cc",
+    "set_version": "1.0.0",
+    "ts": "2026-11-27T04:23:40.033Z"
+   },
+   {
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "served_model": "@cf/meta/llama-3.3-70b-instruct-sd",
+    "bits": "1111111111111111111111111111111101111111",
+    "n": 40,
+    "passed": 39,
+    "errors": 0,
+    "by_cat": {
+     "json": [
+      10,
+      10
+     ],
+     "extraction": [
+      10,
+      10
+     ],
+     "classification": [
+      10,
+      10
+     ],
+     "instruction": [
+      9,
+      10
+     ]
+    },
+    "neurons": 181.27,
+    "truncated": 0,
+    "error_samples": [],
+    "set_sha": "f2ee123cfd10ce6138f49b2d1b4cfd75dcbc9b76804bd7f4ee4d7188e4eab5cc",
+    "set_version": "1.0.0",
+    "ts": "2026-11-27T04:23:46.456Z"
+   },
+   {
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "served_model": "@cf/meta/llama-3.3-70b-instruct-sd",
+    "bits": "1111111111111111111111111111111101111111",
+    "n": 40,
+    "passed": 39,
+    "errors": 0,
+    "by_cat": {
+     "json": [
+      10,
+      10
+     ],
+     "extraction": [
+      10,
+      10
+     ],
+     "classification": [
+      10,
+      10
+     ],
+     "instruction": [
+      9,
+      10
+     ]
+    },
+    "neurons": 178.19,
+    "truncated": 0,
+    "error_samples": [],
+    "set_sha": "f2ee123cfd10ce6138f49b2d1b4cfd75dcbc9b76804bd7f4ee4d7188e4eab5cc",
+    "set_version": "1.0.0",
+    "ts": "2026-11-27T04:23:51.515Z"
+   }
+  ]
+ },
+ "finished": "2026-11-27T04:23:51.524Z"
+}
