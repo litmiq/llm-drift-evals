@@ -1,0 +1,32 @@
+[
+ {
+  "id": "@cf/google/gemma-4-26b-a4b-it",
+  "label": "Gemma 4 26B-A4B",
+  "vendor": "Google"
+ },
+ {
+  "id": "@cf/openai/gpt-oss-20b",
+  "label": "gpt-oss-20b",
+  "vendor": "OpenAI"
+ },
+ {
+  "id": "@cf/meta/llama-4-scout-17b-16e-instruct",
+  "label": "Llama 4 Scout 17B",
+  "vendor": "Meta"
+ },
+ {
+  "id": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "label": "Llama 3.3 70B (fp8 fast)",
+  "vendor": "Meta"
+ },
+ {
+  "id": "@cf/meta/llama-3.1-8b-instruct-fp8-fast",
+  "label": "Llama 3.1 8B (fp8 fast)",
+  "vendor": "Meta"
+ },
+ {
+  "id": "@cf/mistralai/mistral-small-3.1-24b-instruct",
+  "label": "Mistral Small 3.1 24B",
+  "vendor": "Mistral AI"
+ }
+]

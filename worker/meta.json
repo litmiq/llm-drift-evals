@@ -1,0 +1,48 @@
+{
+ "set_id": "litmiq-drift-evals",
+ "version": "1.0.0",
+ "sha256": "f2ee123cfd10ce6138f49b2d1b4cfd75dcbc9b76804bd7f4ee4d7188e4eab5cc",
+ "tasks": 40,
+ "categories": {
+  "json": 10,
+  "extraction": 10,
+  "classification": 10,
+  "instruction": 10
+ },
+ "decoding": {
+  "temperature": 0,
+  "max_tokens": 1024
+ },
+ "models": [
+  {
+   "id": "@cf/google/gemma-4-26b-a4b-it",
+   "label": "Gemma 4 26B-A4B",
+   "vendor": "Google"
+  },
+  {
+   "id": "@cf/openai/gpt-oss-20b",
+   "label": "gpt-oss-20b",
+   "vendor": "OpenAI"
+  },
+  {
+   "id": "@cf/meta/llama-4-scout-17b-16e-instruct",
+   "label": "Llama 4 Scout 17B",
+   "vendor": "Meta"
+  },
+  {
+   "id": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+   "label": "Llama 3.3 70B (fp8 fast)",
+   "vendor": "Meta"
+  },
+  {
+   "id": "@cf/meta/llama-3.1-8b-instruct-fp8-fast",
+   "label": "Llama 3.1 8B (fp8 fast)",
+   "vendor": "Meta"
+  },
+  {
+   "id": "@cf/mistralai/mistral-small-3.1-24b-instruct",
+   "label": "Mistral Small 3.1 24B",
+   "vendor": "Mistral AI"
+  }
+ ]
+}

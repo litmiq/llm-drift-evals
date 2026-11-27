@@ -1,0 +1,636 @@
+{
+ "id": "litmiq-drift-evals",
+ "version": "1.0.0",
+ "released": "2026-11-27",
+ "grader_version": "1.0.0",
+ "decoding": {
+  "temperature": 0,
+  "max_tokens": 1024
+ },
+ "categories": [
+  "json",
+  "extraction",
+  "classification",
+  "instruction"
+ ],
+ "tasks": [
+  {
+   "id": "json-01",
+   "category": "json",
+   "prompt": "Return a JSON object with the keys name (string) and age (integer) for this sentence: Maria is 34 years old. Output only the JSON, with no code fences and no other text.",
+   "grader": {
+    "type": "json",
+    "expect": {
+     "name": "Maria",
+     "age": 34
+    }
+   },
+   "gold": "{\"name\":\"Maria\",\"age\":34}",
+   "bad": "```json\n{\"name\":\"Maria\",\"age\":34}\n```"
+  },
+  {
+   "id": "json-02",
+   "category": "json",
+   "prompt": "Return a JSON array containing the first five prime numbers as integers. Output only the JSON, with no code fences and no other text.",
+   "grader": {
+    "type": "json",
+    "expect": [
+     2,
+     3,
+     5,
+     7,
+     11
+    ]
+   },
+   "gold": "[2,3,5,7,11]",
+   "bad": "The first five primes are [2,3,5,7,11]"
+  },
+  {
+   "id": "json-03",
+   "category": "json",
+   "prompt": "Return a JSON object with the key \"fruits\" (array of strings, in the order mentioned, lowercase) and the key \"count\" (integer) for: I bought an apple and a banana. Output only the JSON, with no code fences and no other text.",
+   "grader": {
+    "type": "json",
+    "expect": {
+     "fruits": [
+      "apple",
+      "banana"
+     ],
+     "count": 2
+    }
+   },
+   "gold": "{\"fruits\":[\"apple\",\"banana\"],\"count\":2}",
+   "bad": "{\"fruits\":[\"apple\",\"banana\"],\"count\":\"2\"}"
+  },
+  {
+   "id": "json-04",
+   "category": "json",
+   "prompt": "Convert this order to JSON: \"Order #1182: 2 x pen at 1.50 each, 1 x notebook at 4.00\". Use the shape {\"order_id\": integer, \"items\": [{\"name\": string, \"qty\": integer, \"price\": number}]}. Output only the JSON, with no code fences and no other text.",
+   "grader": {
+    "type": "json",
+    "expect": {
+     "order_id": 1182,
+     "items": [
+      {
+       "name": "pen",
+       "qty": 2,
+       "price": 1.5
+      },
+      {
+       "name": "notebook",
+       "qty": 1,
+       "price": 4
+      }
+     ]
+    }
+   },
+   "gold": "{\"order_id\":1182,\"items\":[{\"name\":\"pen\",\"qty\":2,\"price\":1.5},{\"name\":\"notebook\",\"qty\":1,\"price\":4.0}]}",
+   "bad": "{\"order_id\":\"1182\",\"items\":[]}"
+  },
+  {
+   "id": "json-05",
+   "category": "json",
+   "prompt": "Return a JSON object with three keys: active set to the boolean true, nickname set to null, and score set to the integer 0. Output only the JSON, with no code fences and no other text.",
+   "grader": {
+    "type": "json",
+    "expect": {
+     "active": true,
+     "nickname": null,
+     "score": 0
+    }
+   },
+   "gold": "{\"active\":true,\"nickname\":null,\"score\":0}",
+   "bad": "{\"active\":\"true\",\"nickname\":null,\"score\":0}"
+  },
+  {
+   "id": "json-06",
+   "category": "json",
+   "prompt": "Return a JSON object with one key, \"quote\", whose string value is He said \"hi\" - copied exactly, with its two quotation marks and nothing else added. Output only the JSON, with no code fences and no other text.",
+   "grader": {
+    "type": "json",
+    "expect": {
+     "quote": "He said \"hi\""
+    }
+   },
+   "gold": "{\"quote\":\"He said \\\"hi\\\"\"}",
+   "bad": "{\"quote\":\"He said \"hi\"\"}"
+  },
+  {
+   "id": "json-07",
+   "category": "json",
+   "prompt": "Return a JSON object with exactly the keys a, b and c, whose values are the integers 1, 2 and 3 respectively. Output only the JSON, with no code fences and no other text.",
+   "grader": {
+    "type": "json",
+    "expect": {
+     "a": 1,
+     "b": 2,
+     "c": 3
+    }
+   },
+   "gold": "{\"a\":1,\"b\":2,\"c\":3}",
+   "bad": "{\"a\":1,\"b\":2}"
+  },
+  {
+   "id": "json-08",
+   "category": "json",
+   "prompt": "Convert this CSV to a JSON array of objects, using the header names as keys and integers for numeric values:\nid,name,qty\n7,widget,12\nOutput only the JSON, with no code fences and no other text.",
+   "grader": {
+    "type": "json",
+    "expect": [
+     {
+      "id": 7,
+      "name": "widget",
+      "qty": 12
+     }
+    ]
+   },
+   "gold": "[{\"id\":7,\"name\":\"widget\",\"qty\":12}]",
+   "bad": "{\"id\":7,\"name\":\"widget\",\"qty\":12}"
+  },
+  {
+   "id": "json-09",
+   "category": "json",
+   "prompt": "Convert the date \"March 5, 2024\" to a JSON object with integer keys year, month and day. Output only the JSON, with no code fences and no other text.",
+   "grader": {
+    "type": "json",
+    "expect": {
+     "year": 2024,
+     "month": 3,
+     "day": 5
+    }
+   },
+   "gold": "{\"year\":2024,\"month\":3,\"day\":5}",
+   "bad": "{\"year\":2024,\"month\":\"March\",\"day\":5}"
+  },
+  {
+   "id": "json-10",
+   "category": "json",
+   "prompt": "Return a JSON object with one key, \"overdue\", whose value is an array of overdue invoice ids found in this text: \"All invoices are paid.\" Output only the JSON, with no code fences and no other text.",
+   "grader": {
+    "type": "json",
+    "expect": {
+     "overdue": []
+    }
+   },
+   "gold": "{\"overdue\":[]}",
+   "bad": "{\"overdue\":null}"
+  },
+  {
+   "id": "extract-01",
+   "category": "extraction",
+   "prompt": "Extract the email address from: Contact us at support@acme-labs.io for help. Reply with the value only.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "support@acme-labs.io"
+    ]
+   },
+   "gold": "support@acme-labs.io",
+   "bad": "help@acme-labs.io"
+  },
+  {
+   "id": "extract-02",
+   "category": "extraction",
+   "prompt": "Extract the invoice total as a plain number with no currency symbol and no thousands separator, from: Invoice total: $1,249.50 due 2025-03-01. Reply with the number only.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "1249.50",
+     "1249.5"
+    ]
+   },
+   "gold": "1249.50",
+   "bad": "1,249.50"
+  },
+  {
+   "id": "extract-03",
+   "category": "extraction",
+   "prompt": "The meeting moved from 4 June to 11 June 2025. Give the new meeting date in ISO format YYYY-MM-DD. Reply with the date only.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "2025-06-11"
+    ]
+   },
+   "gold": "2025-06-11",
+   "bad": "2025-06-04"
+  },
+  {
+   "id": "extract-04",
+   "category": "extraction",
+   "prompt": "Extract the two people's full names without titles, in order of appearance, separated by a semicolon and a space, from: Dr. Elena Park met Prof. Tom Reyes in Lisbon. Reply with the names only.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "elena park; tom reyes"
+    ]
+   },
+   "gold": "Elena Park; Tom Reyes",
+   "bad": "Dr. Elena Park; Prof. Tom Reyes"
+  },
+  {
+   "id": "extract-05",
+   "category": "extraction",
+   "prompt": "Extract the mobile phone number from: Call 415-555-0134 (office) or 415-555-0199 (mobile). Reply with the value only.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "415-555-0199"
+    ]
+   },
+   "gold": "415-555-0199",
+   "bad": "415-555-0134"
+  },
+  {
+   "id": "extract-06",
+   "category": "extraction",
+   "prompt": "How many of these log lines have the level ERROR? Reply with the number only.\nINFO ok\nERROR disk full\nINFO ok\nERROR timeout\nWARN slow",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "2"
+    ]
+   },
+   "gold": "2",
+   "bad": "3"
+  },
+  {
+   "id": "extract-07",
+   "category": "extraction",
+   "prompt": "Extract the full host name, including any subdomain but without the scheme or path, from: Visit https://docs.example.org/guide/start?x=1 now. Reply with the value only.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "docs.example.org"
+    ]
+   },
+   "gold": "docs.example.org",
+   "bad": "https://docs.example.org"
+  },
+  {
+   "id": "extract-08",
+   "category": "extraction",
+   "prompt": "Extract the three-letter currency code from: Price: 45 EUR per month. Reply with the value only.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "eur"
+    ]
+   },
+   "gold": "EUR",
+   "bad": "45 EUR"
+  },
+  {
+   "id": "extract-09",
+   "category": "extraction",
+   "prompt": "Extract the author's last name from: Written by Priya Natarajan on 3 May 2023. Reply with the value only.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "natarajan"
+    ]
+   },
+   "gold": "Natarajan",
+   "bad": "Priya"
+  },
+  {
+   "id": "extract-10",
+   "category": "extraction",
+   "prompt": "Extract the tracking code (not the order id) from: Your order ZX-90417 shipped; tracking TRK-5521. Reply with the value only.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "trk-5521"
+    ]
+   },
+   "gold": "TRK-5521",
+   "bad": "ZX-90417"
+  },
+  {
+   "id": "classify-01",
+   "category": "classification",
+   "prompt": "Classify the sentiment of: \"The battery died after two days and support never answered.\"\nLabels: positive, negative, neutral. Reply with exactly one label, lowercase, and nothing else.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "negative"
+    ]
+   },
+   "gold": "negative",
+   "bad": "positive"
+  },
+  {
+   "id": "classify-02",
+   "category": "classification",
+   "prompt": "Classify the sentiment of: \"Absolutely love the new update, everything feels faster!\"\nLabels: positive, negative, neutral. Reply with exactly one label, lowercase, and nothing else.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "positive"
+    ]
+   },
+   "gold": "positive",
+   "bad": "negative"
+  },
+  {
+   "id": "classify-03",
+   "category": "classification",
+   "prompt": "Classify the sentiment of: \"The package arrived on Tuesday.\"\nLabels: positive, negative, neutral. Reply with exactly one label, lowercase, and nothing else.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "neutral"
+    ]
+   },
+   "gold": "neutral",
+   "bad": "positive"
+  },
+  {
+   "id": "classify-04",
+   "category": "classification",
+   "prompt": "Classify the intent of this customer message: \"I want my money back for order 5521.\"\nLabels: refund, shipping, login, other. Reply with exactly one label, lowercase, and nothing else.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "refund"
+    ]
+   },
+   "gold": "refund",
+   "bad": "shipping"
+  },
+  {
+   "id": "classify-05",
+   "category": "classification",
+   "prompt": "Classify the intent of this customer message: \"I can't sign in, it says wrong password.\"\nLabels: refund, shipping, login, other. Reply with exactly one label, lowercase, and nothing else.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "login"
+    ]
+   },
+   "gold": "login",
+   "bad": "other"
+  },
+  {
+   "id": "classify-06",
+   "category": "classification",
+   "prompt": "Classify the topic of: \"The Lakers beat the Celtics 112-104 last night.\"\nLabels: sports, politics, technology, finance. Reply with exactly one label, lowercase, and nothing else.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "sports"
+    ]
+   },
+   "gold": "sports",
+   "bad": "politics"
+  },
+  {
+   "id": "classify-07",
+   "category": "classification",
+   "prompt": "Classify the topic of: \"The central bank raised interest rates by 25 basis points.\"\nLabels: sports, politics, technology, finance. Reply with exactly one label, lowercase, and nothing else.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "finance"
+    ]
+   },
+   "gold": "finance",
+   "bad": "politics"
+  },
+  {
+   "id": "classify-08",
+   "category": "classification",
+   "prompt": "Classify the topic of: \"A new open-source compiler release cuts build times in half.\"\nLabels: sports, politics, technology, finance. Reply with exactly one label, lowercase, and nothing else.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "technology"
+    ]
+   },
+   "gold": "technology",
+   "bad": "finance"
+  },
+  {
+   "id": "classify-09",
+   "category": "classification",
+   "prompt": "Is this message spam? \"WINNER!! Claim your free prize now at bit.ly/xyz\"\nLabels: spam, not_spam. Reply with exactly one label, lowercase, and nothing else.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "spam"
+    ]
+   },
+   "gold": "spam",
+   "bad": "not_spam"
+  },
+  {
+   "id": "classify-10",
+   "category": "classification",
+   "prompt": "Is this message spam? \"Hi Sam, are we still on for lunch at noon tomorrow?\"\nLabels: spam, not_spam. Reply with exactly one label, lowercase, and nothing else.",
+   "grader": {
+    "type": "match",
+    "expect": [
+     "not_spam"
+    ]
+   },
+   "gold": "not_spam",
+   "bad": "spam"
+  },
+  {
+   "id": "follow-01",
+   "category": "instruction",
+   "prompt": "Write exactly three bullet points about coffee. Start every line with '- '. Output nothing except the three lines.",
+   "grader": {
+    "type": "constraints",
+    "checks": [
+     [
+      "lines",
+      3
+     ],
+     [
+      "eachStartsWith",
+      "- "
+     ]
+    ]
+   },
+   "gold": "- Brewed from roasted beans\n- Often served hot\n- Contains caffeine",
+   "bad": "- Brewed\n- Hot"
+  },
+  {
+   "id": "follow-02",
+   "category": "instruction",
+   "prompt": "Write one sentence about rain, entirely in lowercase letters, with no capital letters at all.",
+   "grader": {
+    "type": "constraints",
+    "checks": [
+     [
+      "lowercase"
+     ],
+     [
+      "minWords",
+      3
+     ]
+    ]
+   },
+   "gold": "rain falls softly on the quiet street.",
+   "bad": "Rain falls softly."
+  },
+  {
+   "id": "follow-03",
+   "category": "instruction",
+   "prompt": "Write one sentence about the moon that contains exactly 8 words. Output only the sentence.",
+   "grader": {
+    "type": "constraints",
+    "checks": [
+     [
+      "words",
+      8
+     ]
+    ]
+   },
+   "gold": "The moon glows brightly above the sleeping town.",
+   "bad": "The moon glows."
+  },
+  {
+   "id": "follow-04",
+   "category": "instruction",
+   "prompt": "Reply with the word yes repeated exactly 4 times, separated by single spaces, and nothing else.",
+   "grader": {
+    "type": "constraints",
+    "checks": [
+     [
+      "equals",
+      "yes yes yes yes"
+     ]
+    ]
+   },
+   "gold": "yes yes yes yes",
+   "bad": "yes yes yes"
+  },
+  {
+   "id": "follow-05",
+   "category": "instruction",
+   "prompt": "List exactly three different colors on one line, separated by commas, in alphabetical order. Output nothing else.",
+   "grader": {
+    "type": "constraints",
+    "checks": [
+     [
+      "lines",
+      1
+     ],
+     [
+      "csvSorted",
+      3
+     ]
+    ]
+   },
+   "gold": "blue, green, red",
+   "bad": "red, blue, green"
+  },
+  {
+   "id": "follow-06",
+   "category": "instruction",
+   "prompt": "Write exactly two sentences describing a bicycle. The first sentence must start with the words 'A bicycle'. Do not use the letter z anywhere.",
+   "grader": {
+    "type": "constraints",
+    "checks": [
+     [
+      "startsWith",
+      "A bicycle"
+     ],
+     [
+      "sentences",
+      2
+     ],
+     [
+      "notContains",
+      "z"
+     ]
+    ]
+   },
+   "gold": "A bicycle has two wheels and a frame. Riders pedal it to move forward.",
+   "bad": "A bicycle is a bike."
+  },
+  {
+   "id": "follow-07",
+   "category": "instruction",
+   "prompt": "Answer in at most 12 words: why is the sky blue?",
+   "grader": {
+    "type": "constraints",
+    "checks": [
+     [
+      "maxWords",
+      12
+     ],
+     [
+      "minWords",
+      3
+     ]
+    ]
+   },
+   "gold": "Air scatters blue light from the sun more than red.",
+   "bad": "Because the atmosphere scatters shorter wavelengths of sunlight much more strongly than longer ones do overall."
+  },
+  {
+   "id": "follow-08",
+   "category": "instruction",
+   "prompt": "Write the numbers 1 to 5, each on its own line, and nothing else.",
+   "grader": {
+    "type": "constraints",
+    "checks": [
+     [
+      "equalsLines",
+      [
+       "1",
+       "2",
+       "3",
+       "4",
+       "5"
+      ]
+     ]
+    ]
+   },
+   "gold": "1\n2\n3\n4\n5",
+   "bad": "1, 2, 3, 4, 5"
+  },
+  {
+   "id": "follow-09",
+   "category": "instruction",
+   "prompt": "Write a three-line poem about snow. Output exactly three lines, no title, no blank lines.",
+   "grader": {
+    "type": "constraints",
+    "checks": [
+     [
+      "lines",
+      3
+     ]
+    ]
+   },
+   "gold": "Soft flakes drift and fall\nWhite hush over every roof\nThe cold town sleeps on",
+   "bad": "Snow\nIt falls\nIt melts\nIt is gone"
+  },
+  {
+   "id": "follow-10",
+   "category": "instruction",
+   "prompt": "Say hello to Dana. Use uppercase letters only, and end the reply with an exclamation mark.",
+   "grader": {
+    "type": "constraints",
+    "checks": [
+     [
+      "uppercase"
+     ],
+     [
+      "endsWith",
+      "!"
+     ],
+     [
+      "contains",
+      "DANA"
+     ]
+    ]
+   },
+   "gold": "HELLO DANA!",
+   "bad": "Hello Dana!"
+  }
+ ]
+}
